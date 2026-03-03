@@ -19,7 +19,7 @@
 - Якщо `%current_hour%` ≥ 8 і `< 12` → `greeting = "Доброго ранку"`
 - Інакше якщо `%current_hour%` ≥ 12 і `< 17` → `greeting = "Доброго дня"`
 - Інакше якщо `%current_hour%` ≥ 17 і `< 23` → `greeting = "Доброго вечора"`
-- Інакше якщо `%current_hour%` ≥ 23 АБО `%current_hour%` < 8 → `greeting = "Доброї ночі"`
+- Інакше якщо `%current_hour%` ≥ 23 АБО `%current_hour%` < 8 → `greeting = "Доброї ночі"` (години 23 та 0–7)
 
 ## 5. Визначення тону (`tone`)
 - Якщо `%message%` містить "добрий день" / "будь ласка" / "дякую" → `tone = "formal"`
@@ -69,7 +69,7 @@
 **Мережа → HTTP запит**  
 - Метод: POST  
 - URL: ваш Apps Script. Шаблон: `https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec`  
-- Де взяти `YOUR_DEPLOYMENT_ID`: Apps Script → Deploy/Manage deployments → **Web app** → копіюйте весь URL і використайте його як є, або візьміть частину між `/s/` та `/exec` як ID для шаблону.  
+- Де взяти `YOUR_DEPLOYMENT_ID`: Apps Script → Deploy/Manage deployments → **Web app** → найпростіше вставити повний URL; якщо користуєтеся шаблоном, візьміть ID між `/s/` та `/exec`.  
 - Спершу опублікуйте скрипт саме як **Web app**; інші типи деплою мають іншу структуру URL.  
 - Тіло: `{"username": "%username%", "message": "%message%"}`  
 - Content-Type: `application/json`
