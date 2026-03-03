@@ -23,15 +23,15 @@ function doPost(e) {
     sheet.appendRow([timestamp, username, message]);
 
     // Логування для перевірки
-    console.log(`Додано бронювання від ${username} о ${timestamp.toISOString()}`);
+    console.log('Додано новий запис бронювання');
 
     return ContentService
       .createTextOutput(JSON.stringify({ result: 'success', restaurant: 'Зірочка' }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
-    console.error('Помилка:', error.message);
+    console.error('Помилка під час обробки бронювання');
     return ContentService
-      .createTextOutput(JSON.stringify({ result: 'error', error: error.toString() }))
+      .createTextOutput(JSON.stringify({ result: 'error', error: 'internal_error' }))
       .setMimeType(ContentService.MimeType.JSON);
   }
 }
