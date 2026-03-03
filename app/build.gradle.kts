@@ -12,6 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.zirochka.pos"
         minSdk = 26
+        // API 26+ щоб гарантувати підтримку сучасних бібліотек Compose/Room/Hilt
         targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"

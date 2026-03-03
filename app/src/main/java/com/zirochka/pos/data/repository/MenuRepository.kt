@@ -69,7 +69,7 @@ class MenuRepository(
             }
             menuItemDao.insertAll(menuItems)
         }.onFailure {
-            Log.e("MenuRepository", "Не вдалося прочитати $fileName", it)
+            Log.e("MenuRepository", "Не вдалося прочитати $fileName: ${it.message}", it)
         }
     }
 }
