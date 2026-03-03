@@ -14,7 +14,7 @@
 5. Відповідь автоматично надсилається в Instagram.
 6. Дані бронювання додаються в Google Sheets (менеджер бачить їх онлайн).
 
-![Архітектура](https://via.placeholder.com/800x400?text=Instagram+→+Samsung+«Зірочка»+→+MacroDroid+→+Google+Sheets+%26+Reply)
+Схема: Instagram → Samsung «Зірочка» → MacroDroid → Google Sheets + авто-відповідь.
 
 ## Вимоги
 

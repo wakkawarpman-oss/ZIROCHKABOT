@@ -23,7 +23,7 @@ function doPost(e) {
     sheet.appendRow([timestamp, username, message]);
 
     // Логування для перевірки
-    console.log(`Додано бронювання від ${username}: ${message}`);
+    console.log(`Додано бронювання від ${username} о ${timestamp.toISOString()}`);
 
     return ContentService
       .createTextOutput(JSON.stringify({ result: 'success', restaurant: 'Зірочка' }))
