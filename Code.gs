@@ -26,7 +26,7 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({ result: 'success', restaurant: 'Зірочка' }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
-    console.error('Помилка під час обробки бронювання:', error && error.message);
+    console.error('Помилка під час обробки бронювання:', error?.message || error);
     return ContentService
       .createTextOutput(JSON.stringify({ result: 'error', error: 'internal_error' }))
       .setMimeType(ContentService.MimeType.JSON);
