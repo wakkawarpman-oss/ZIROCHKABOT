@@ -14,10 +14,10 @@
 
 ## Дії (покроково)
 1. **Встановити змінні привітання за часом**  
-   - Якщо година 6–11 → `greeting = greeting_morning` (`Доброго ранку!`)  
-   - 12–16 → `greeting = greeting_afternoon` (`Доброго дня!`)  
-   - 17–22 → `greeting = greeting_evening` (`Доброго вечора!`)  
-   - Інакше → `greeting = greeting_night` (`Доброго ночі!`)
+- Якщо година 6–11 → `greeting = greeting_morning` (`Доброго ранку!`)  
+- 12–16 → `greeting = greeting_afternoon` (`Доброго дня!`)  
+- 17–22 → `greeting = greeting_evening` (`Доброго вечора!`)  
+- Інакше → `greeting = greeting_night` (`Доброї ночі!`)
 2. **Визначити тон відповіді за ключовими словами**  
    - Якщо текст містить `перепрош`, `пізно`, `довго` → `tone = reply_apologetic` (`Будь ласка, вибачте...`)  
    - Якщо містить `дякую`, `клас`, `смачно` → `tone = reply_friendly` (`Щиро дякуємо...`)  

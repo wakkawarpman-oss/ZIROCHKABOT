@@ -1,5 +1,6 @@
 package com.zirochka.pos.data.repository
 
+import android.util.Log
 import com.zirochka.pos.data.local.dao.OrderDao
 import com.zirochka.pos.data.local.entity.OrderEntity
 import com.zirochka.pos.data.remote.api.GoogleSheetsApi
@@ -57,6 +58,8 @@ class OrderRepository(
                     total = total
                 )
             )
+        }.onFailure {
+            Log.w("OrderRepository", "Sheets sync failed", it)
         }
     }
 
@@ -70,6 +73,8 @@ class OrderRepository(
                     text = "*Нове замовлення #$id*\n$summary\nРазом: ${"%.2f".format(total)} грн"
                 )
             )
+        }.onFailure {
+            Log.w("OrderRepository", "Telegram sync failed", it)
         }
     }
 

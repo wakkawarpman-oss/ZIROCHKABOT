@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -47,7 +48,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-data class Destination(val route: String, val label: String, val icon: androidx.compose.ui.graphics.vector.ImageVector)
+data class Destination(val route: String, val label: String, val icon: ImageVector)
 
 @Composable
 fun PosApp(navController: NavHostController = rememberNavController()) {

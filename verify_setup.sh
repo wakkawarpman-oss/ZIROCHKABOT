@@ -25,10 +25,11 @@ else
 fi
 
 echo "---- Перевірка інтернет-з'єднання ----"
-if ping -c1 -W2 google.com >/dev/null 2>&1; then
-  echo "✅ Інтернет доступний"
+PING_HOST="${PING_HOST:-8.8.8.8}"
+if ping -c1 -W2 "$PING_HOST" >/dev/null 2>&1; then
+    echo "✅ Інтернет доступний"
 else
-  echo "⚠️  Інтернет недоступний або заблокований"
+    echo "⚠️  Інтернет недоступний або заблокований"
 fi
 
 APP_SCRIPT_URL="${1:-${SHEETS_SCRIPT_URL:-}}"

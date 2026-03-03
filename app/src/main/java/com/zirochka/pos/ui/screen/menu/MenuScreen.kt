@@ -46,20 +46,21 @@ fun MenuScreen(
                 }
             }
         }
-        LazyColumn(modifier = Modifier.weight(1f)) {
-            items(items) { menuItem ->
-                MenuItemCard(
-                    item = menuItem,
-                    onAdd = onAdd,
-                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                )
+        if (items.isEmpty()) {
+            Text(
+                text = "Меню завантажується...",
+                modifier = Modifier.padding(16.dp)
+            )
+        } else {
+            LazyColumn(modifier = Modifier.weight(1f)) {
+                items(items) { menuItem ->
+                    MenuItemCard(
+                        item = menuItem,
+                        onAdd = onAdd,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                    )
+                }
             }
         }
-    }
-    if (items.isEmpty()) {
-        Text(
-            text = "Меню завантажується...",
-            modifier = Modifier.padding(16.dp)
-        )
     }
 }
