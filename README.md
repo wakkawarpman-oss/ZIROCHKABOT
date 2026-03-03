@@ -19,7 +19,7 @@
 - Якщо `%current_hour%` ≥ 8 і `< 12` → `greeting = "Доброго ранку"`
 - Інакше якщо `%current_hour%` ≥ 12 і `< 17` → `greeting = "Доброго дня"`
 - Інакше якщо `%current_hour%` ≥ 17 і `< 23` → `greeting = "Доброго вечора"`
-- Інакше якщо `%current_hour%` ≥ 23 АБО `%current_hour%` < 8 → `greeting = "Доброї ночі"` (години 23 та 0–7)
+- Інакше якщо `%current_hour%` ≥ 23 АБО `%current_hour%` < 8 → `greeting = "Доброї ночі"` (години 23, 0–7)
 
 ## 5. Визначення тону (`tone`)
 - Якщо `%message%` містить "добрий день" / "будь ласка" / "дякую" → `tone = "formal"`
@@ -69,14 +69,14 @@
 **Мережа → HTTP запит**  
 - Метод: POST  
 - URL: ваш Apps Script. Шаблон: `https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec`  
-- Де взяти `YOUR_DEPLOYMENT_ID`: Apps Script → Deploy/Manage deployments → **Web app** → найпростіше вставити повний URL; якщо користуєтеся шаблоном, візьміть ID між `/s/` та `/exec`.  
+- Де взяти `YOUR_DEPLOYMENT_ID`: Apps Script → Deploy/Manage deployments → **Web app** → найпростіше вставити повний URL; якщо користуєтеся шаблоном, візьміть ID між `/s/` та `/exec` (наприклад, з `https://script.google.com/macros/s/ABC123XYZ/exec` беріть `ABC123XYZ`).  
 - Спершу опублікуйте скрипт саме як **Web app**; інші типи деплою мають іншу структуру URL.  
 - Тіло: `{"username": "%username%", "message": "%message%"}`  
 - Content-Type: `application/json`
 
 ## 8. Надсилання відповіді в Instagram
 1. **Екран → Відкрити додаток → Instagram**
-2. **Екран → Затримка 2–5 с** (підберіть час під свій пристрій/мережу)
+2. **Екран → Затримка 2–5 с** (почніть з ~3 с і збільшуйте, якщо Instagram не встигає відкритися)
 3. **Екран → Вставити текст** → `%final_reply%`
 4. **Екран → Натиснути Enter** (або торкання кнопки «Надіслати» з підібраними координатами).
 > Переконайтеся, що MacroDroid має дозвіл на дії на екрані (Android → Спеціальні можливості → MacroDroid); після надання дозволу перезапустіть макрос/додаток, щоб він почав працювати.
