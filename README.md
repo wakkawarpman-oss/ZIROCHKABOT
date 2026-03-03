@@ -18,7 +18,7 @@
 ## 4. Привітання за часом (`greeting`)
 - Якщо `%current_hour%` ≥ 8 і `< 12` → `greeting = "Доброго ранку"`
 - Інакше якщо `%current_hour%` ≥ 12 і `< 17` → `greeting = "Доброго дня"`
-- Інакше якщо `%current_hour%` ≥ 17 і ≤ 22 → `greeting = "Доброго вечора"`
+- Інакше якщо `%current_hour%` ≥ 17 і < 23 → `greeting = "Доброго вечора"`
 - Інакше якщо `%current_hour%` ≥ 23 АБО `%current_hour%` < 8 → `greeting = "Доброї ночі"`
 
 ## 5. Визначення тону (`tone`)
@@ -69,7 +69,7 @@
 **Мережа → HTTP запит**  
 - Метод: POST  
 - URL: ваш Apps Script. Шаблон: `https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec`  
-- Де взяти `YOUR_DEPLOYMENT_ID`: Apps Script → Deploy/Manage deployments → **Web app** → копіюйте URL та підставляйте ID.  
+- Де взяти `YOUR_DEPLOYMENT_ID`: Apps Script → Deploy/Manage deployments → **Web app** → копіюйте URL та підставте ID.  
 - Спершу опублікуйте скрипт саме як **Web app**; інші типи деплою мають іншу структуру URL.  
 - Тіло: `{"username": "%username%", "message": "%message%"}`  
 - Content-Type: `application/json`
