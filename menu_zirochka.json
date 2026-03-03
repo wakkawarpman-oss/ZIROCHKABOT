@@ -1,0 +1,329 @@
+{
+  "categories": [
+    {
+      "name": "ПИВО / СИДР",
+      "items": [
+        {
+          "id": "beer_001",
+          "name": "Sparkle Lager",
+          "description": "Світлий лагер, 0.5л",
+          "price": 150,
+          "active": true
+        },
+        {
+          "id": "beer_002",
+          "name": "Citra Haze IPA",
+          "description": "Хмелевий IPA, 0.4л",
+          "price": 170,
+          "active": true
+        },
+        {
+          "id": "beer_003",
+          "name": "Porter Night",
+          "description": "Темний портер, 0.5л",
+          "price": 180,
+          "active": true
+        },
+        {
+          "id": "cider_001",
+          "name": "Яблучний сидр",
+          "description": "Натуральний яблучний сидр, 0.4л",
+          "price": 160,
+          "active": true
+        },
+        {
+          "id": "cider_002",
+          "name": "Грушевий сидр",
+          "description": "Освiжний грушевий сидр, 0.4л",
+          "price": 165,
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "ВИНО",
+      "items": [
+        {
+          "id": "wine_001",
+          "name": "Домашнє червоне",
+          "description": "Купаж, 0.2л",
+          "price": 120,
+          "active": true
+        },
+        {
+          "id": "wine_002",
+          "name": "Шардоне",
+          "description": "Біле сухе, 0.15л",
+          "price": 135,
+          "active": true
+        },
+        {
+          "id": "wine_003",
+          "name": "Піно Гріджо",
+          "description": "Біле сухе, 0.15л",
+          "price": 140,
+          "active": true
+        },
+        {
+          "id": "wine_004",
+          "name": "Розе Прованс",
+          "description": "Рожеве, 0.15л",
+          "price": 145,
+          "active": true
+        },
+        {
+          "id": "wine_005",
+          "name": "Просекко",
+          "description": "Ігристе, 0.15л",
+          "price": 150,
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "СОДОВА",
+      "items": [
+        {
+          "id": "soda_001",
+          "name": "Тонік",
+          "description": "Класичний, 0.25л",
+          "price": 60,
+          "active": true
+        },
+        {
+          "id": "soda_002",
+          "name": "Імбирний ель",
+          "description": "Зі свіжим імбиром, 0.25л",
+          "price": 70,
+          "active": true
+        },
+        {
+          "id": "soda_003",
+          "name": "Лимонад",
+          "description": "Домашній, 0.3л",
+          "price": 80,
+          "active": true
+        },
+        {
+          "id": "soda_004",
+          "name": "Юдзу сода",
+          "description": "Цитрусовий, 0.3л",
+          "price": 85,
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "КОКТЕЙЛІ",
+      "items": [
+        {
+          "id": "cocktail_001",
+          "name": "Негроні",
+          "description": "Джин, кампарі, вермут",
+          "price": 210,
+          "active": true
+        },
+        {
+          "id": "cocktail_002",
+          "name": "Маргарита",
+          "description": "Текіла, лайм, трипл сек",
+          "price": 200,
+          "active": true
+        },
+        {
+          "id": "cocktail_003",
+          "name": "Апероль Спритц",
+          "description": "Апероль, просекко, сода",
+          "price": 195,
+          "active": true
+        },
+        {
+          "id": "cocktail_004",
+          "name": "Віскі Сауер",
+          "description": "Бурбон, лимон, білок",
+          "price": 205,
+          "active": true
+        },
+        {
+          "id": "cocktail_005",
+          "name": "Манхеттен",
+          "description": "Бурбон, червоний вермут",
+          "price": 215,
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "МОКТЕЙЛІ",
+      "items": [
+        {
+          "id": "mocktail_001",
+          "name": "Virgin Мохіто",
+          "description": "М'ята, лайм, сода",
+          "price": 120,
+          "active": true
+        },
+        {
+          "id": "mocktail_002",
+          "name": "Ягідний лимонад",
+          "description": "Мікс ягід, лимон, сода",
+          "price": 115,
+          "active": true
+        },
+        {
+          "id": "mocktail_003",
+          "name": "Юдзу Безалкогольний",
+          "description": "Юдзу, мед, сода",
+          "price": 130,
+          "active": true
+        },
+        {
+          "id": "mocktail_004",
+          "name": "Імбирний шот",
+          "description": "Імбир, яблуко, лайм",
+          "price": 95,
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "ОСНОВНЕ",
+      "items": [
+        {
+          "id": "main_001",
+          "name": "Рамен \"Зірочка\"",
+          "description": "Курячий бульйон, місо, яйце, локшина",
+          "price": 260,
+          "active": true
+        },
+        {
+          "id": "main_002",
+          "name": "Якісоба з овочами",
+          "description": "Локшина, соус тонкацу, овочі",
+          "price": 240,
+          "active": true
+        },
+        {
+          "id": "main_003",
+          "name": "Карі з куркою",
+          "description": "Японське карі, рис жасмин",
+          "price": 255,
+          "active": true
+        },
+        {
+          "id": "main_004",
+          "name": "Лосось теріякі",
+          "description": "Лосось, соус теріякі, рис",
+          "price": 320,
+          "active": true
+        },
+        {
+          "id": "main_005",
+          "name": "Тофу донбурі",
+          "description": "Тофу, овочі, рис, соус понзу",
+          "price": 230,
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "ЦУКЕМОНО (МАРИНОВКИ)",
+      "items": [
+        {
+          "id": "tsuke_001",
+          "name": "Маринований дайкон",
+          "description": "Солодко-кислий смак",
+          "price": 90,
+          "active": true
+        },
+        {
+          "id": "tsuke_002",
+          "name": "Кімчі",
+          "description": "Пекінська капуста, чилі",
+          "price": 95,
+          "active": true
+        },
+        {
+          "id": "tsuke_003",
+          "name": "Огірки з місо",
+          "description": "Мариновані огірки, паста місо",
+          "price": 90,
+          "active": true
+        },
+        {
+          "id": "tsuke_004",
+          "name": "Імбир маринований",
+          "description": "Тонкі слайси імбиру",
+          "price": 85,
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "СНЕКИ",
+      "items": [
+        {
+          "id": "snack_001",
+          "name": "Едамаме з сіллю",
+          "description": "Стручки сої з морською сіллю",
+          "price": 110,
+          "active": true
+        },
+        {
+          "id": "snack_002",
+          "name": "Сирні палички",
+          "description": "Паніровка, соус тартар",
+          "price": 130,
+          "active": true
+        },
+        {
+          "id": "snack_003",
+          "name": "Курячі крильця",
+          "description": "Соус теріякі, кунжут",
+          "price": 145,
+          "active": true
+        },
+        {
+          "id": "snack_004",
+          "name": "Креветки темпура",
+          "description": "Подача з соусом понзу",
+          "price": 175,
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "САЛАТИ ТА ЗАКУСКИ",
+      "items": [
+        {
+          "id": "salad_001",
+          "name": "Салат з водоростями",
+          "description": "Вакаме, кунжут, соєвий соус",
+          "price": 140,
+          "active": true
+        },
+        {
+          "id": "salad_002",
+          "name": "Татаки тунець",
+          "description": "Легко обсмажений тунець, понзу",
+          "price": 260,
+          "active": true
+        },
+        {
+          "id": "salad_003",
+          "name": "Гьодза овочева",
+          "description": "Парові пельменці, соєвий соус",
+          "price": 150,
+          "active": true
+        },
+        {
+          "id": "salad_004",
+          "name": "Тофу з кунжутом",
+          "description": "Шовковисте тофу, соус теріякі",
+          "price": 135,
+          "active": true
+        }
+      ]
+    }
+  ]
+}
