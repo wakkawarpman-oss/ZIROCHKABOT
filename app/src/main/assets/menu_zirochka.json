@@ -1,0 +1,94 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "ПИВО / СИДР",
+      "items": [
+        { "id": 101, "name": "Sparkle Lager", "description": "Легкий лагер із цитрусовими нотами", "price": 95.0, "available": true },
+        { "id": 102, "name": "Кімчі IPA", "description": "Хмільний IPA з пряним післясмаком", "price": 120.0, "available": true },
+        { "id": 103, "name": "Грінвей Сидр", "description": "Яблучний сидр з м'ятою", "price": 110.0, "available": true },
+        { "id": 104, "name": "Чорний Медовик", "description": "Темне пиво з карамельними нотами", "price": 115.0, "available": true }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "БЕЗАЛКОГОЛЬНІ",
+      "items": [
+        { "id": 201, "name": "Домашній узвар", "description": "Сушені фрукти, мед, лимон", "price": 70.0, "available": true },
+        { "id": 202, "name": "Морс журавлинний", "description": "Освіжаючий напій з ягід", "price": 65.0, "available": true },
+        { "id": 203, "name": "Лимонад шавлія-лимон", "description": "Домашній лимонад з травами", "price": 75.0, "available": true },
+        { "id": 204, "name": "Матча-лате", "description": "Японський чай з молоком", "price": 85.0, "available": true }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "СНІДАНКИ",
+      "items": [
+        { "id": 301, "name": "Яйця пашот з лососем", "description": "Зелений соус, хліб на заквасці", "price": 165.0, "available": true },
+        { "id": 302, "name": "Сирники з сметаною", "description": "Домашній сир, карамель, ягоди", "price": 140.0, "available": true },
+        { "id": 303, "name": "Гранола з йогуртом", "description": "Горіхи, мед, сезонні фрукти", "price": 115.0, "available": true },
+        { "id": 304, "name": "Омлет з бринзою", "description": "Томати конфі, зелень", "price": 125.0, "available": true }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "САЛАТИ",
+      "items": [
+        { "id": 401, "name": "Салат «Зірочка»", "description": "Мікс зелені, печені овочі, соус кунжут", "price": 165.0, "available": true },
+        { "id": 402, "name": "Цезар з індичкою", "description": "Домашній соус, пармезан, грінки", "price": 175.0, "available": true },
+        { "id": 403, "name": "Теплий салат з печінкою", "description": "Вишневий соус, цибуля конфі", "price": 185.0, "available": true },
+        { "id": 404, "name": "Капрезе з буряком", "description": "Буряк запечений, моцарела, песто", "price": 160.0, "available": true }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "ЦУКЕМОНО",
+      "items": [
+        { "id": 501, "name": "Мариновані огірочки", "description": "Домашній розсіл, кріп", "price": 85.0, "available": true },
+        { "id": 502, "name": "Кімчі", "description": "Пряне ферментоване капустяне асорті", "price": 95.0, "available": true },
+        { "id": 503, "name": "Мариновані печериці", "description": "Часник, духмяний перець", "price": 90.0, "available": true },
+        { "id": 504, "name": "Асорті овочеве", "description": "Огірок, цвітна капуста, морква", "price": 98.0, "available": true }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "ОСНОВНІ СТРАВИ",
+      "items": [
+        { "id": 601, "name": "Бограч", "description": "Гострий гуляш з копченою паприкою", "price": 210.0, "available": true },
+        { "id": 602, "name": "Домашні ковбаски", "description": "Запечені з картоплею по-селянськи", "price": 240.0, "available": true },
+        { "id": 603, "name": "Качка з яблуками", "description": "Запечена ніжка, соус із брусниці", "price": 265.0, "available": true },
+        { "id": 604, "name": "Печена форель", "description": "Лимонний соус, шпинат", "price": 255.0, "available": true }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "ПЕРШІ СТРАВИ",
+      "items": [
+        { "id": 701, "name": "Борщ київський", "description": "З квасолею, пампушка з часником", "price": 165.0, "available": true },
+        { "id": 702, "name": "Крем-суп з гарбуза", "description": "Насіння гарбуза, вершки", "price": 140.0, "available": true },
+        { "id": 703, "name": "Солянка м'ясна", "description": "Копченості, оливки, лимон", "price": 175.0, "available": true },
+        { "id": 704, "name": "Рамен грибний", "description": "Гриби шиітаке, локшина удон", "price": 185.0, "available": true }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "ДЕСЕРТИ",
+      "items": [
+        { "id": 801, "name": "Медовик карамельний", "description": "Медові коржі, сметанковий крем", "price": 125.0, "available": true },
+        { "id": 802, "name": "Чизкейк ягідний", "description": "Сирний крем, малиновий соус", "price": 135.0, "available": true },
+        { "id": 803, "name": "Шоколадний фондан", "description": "Подача з морозивом", "price": 145.0, "available": true },
+        { "id": 804, "name": "Макові равіолі", "description": "Тонке тісто, маково-ванільна начинка", "price": 130.0, "available": true }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "БАРНІ ЗАКУСКИ",
+      "items": [
+        { "id": 901, "name": "Брускета з ростбіфом", "description": "Хріновий соус, маринована цибуля", "price": 145.0, "available": true },
+        { "id": 902, "name": "Тар-тар із лосося", "description": "Каперси, соус понзу, чіа-насіння", "price": 185.0, "available": true },
+        { "id": 903, "name": "Сирні палички з дзадзікі", "description": "Сир сулугуні, грецький соус", "price": 135.0, "available": true },
+        { "id": 904, "name": "Гуакамоле з лавашем", "description": "Стиглий авокадо, лайм, кінза", "price": 125.0, "available": true }
+      ]
+    }
+  ]
+}
