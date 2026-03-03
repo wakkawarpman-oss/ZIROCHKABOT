@@ -1,0 +1,51 @@
+{
+  "exportVersion": 1,
+  "macros": [
+    {
+      "name": "Zirochka Instagram Bot",
+      "description": "Автовідповідь для ресторану «Зірочка» (@zirochka.kyiv)",
+      "enabled": true,
+      "triggers": [
+        {
+          "type": "InstagramDirectMessageReceived",
+          "account": "@zirochka.kyiv"
+        }
+      ],
+      "actions": [
+        {
+          "type": "HttpRequest",
+          "method": "POST",
+          "url": "INSERT_YOUR_APPS_SCRIPT_URL_HERE",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": "{\"username\":\"%contact_name%\",\"message\":\"%sms_text%\",\"source\":\"Instagram\"}"
+        },
+        {
+          "type": "ConditionalReply",
+          "cases": [
+            {
+              "match": "добрий день|бронювати|столик|19:00",
+              "reply": "✨ Дякуємо за звернення! Ми зв’яжемося найближчим часом. @zirochka.kyiv"
+            },
+            {
+              "match": "привіт|вільні місця|є вільні",
+              "reply": "😊 Привіт! Так, є вільні місця. Напишіть час і кількість гостей. @zirochka.kyiv"
+            },
+            {
+              "match": "довго не відповідаєте|чому так довго|де відповідь",
+              "reply": "🙏 Вибачте за очікування, вже перевіряємо столики. @zirochka.kyiv"
+            },
+            {
+              "match": "меню|що сьогодні",
+              "reply": "%greeting_formal% Дякуємо за запит! Зараз уточнимо. @zirochka.kyiv"
+            }
+          ],
+          "fallback": "✨ Дякуємо! Ми на зв’язку. @zirochka.kyiv"
+        }
+      ],
+      "constraints": []
+    }
+  ],
+  "note": "URL у дії HTTP-запиту встановлено як INSERT_YOUR_APPS_SCRIPT_URL_HERE – замініть його на свій Apps Script під час налаштування. Якщо файл відкрився як текст, імпортуйте його в MacroDroid через пункт «Імпорт»."
+}
