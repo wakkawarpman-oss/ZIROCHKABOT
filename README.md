@@ -19,7 +19,7 @@
 - Якщо `%current_hour%` ≥ 8 і `< 12` → `greeting = "Доброго ранку"`
 - Інакше якщо `%current_hour%` ≥ 12 і `< 17` → `greeting = "Доброго дня"`
 - Інакше якщо `%current_hour%` ≥ 17 і `< 23` → `greeting = "Доброго вечора"`
-- Інакше якщо `%current_hour%` ≥ 23 АБО `%current_hour%` < 8 → `greeting = "Доброї ночі"` (години 23, 0–7)
+- Інакше якщо `%current_hour%` ≥ 23 АБО `%current_hour%` < 8 → `greeting = "Доброї ночі"` (години 23, 0–7; з 8-ї починається ранок)
 
 ## 5. Визначення тону (`tone`)
 - Якщо `%message%` містить "добрий день" / "будь ласка" / "дякую" → `tone = "formal"`
@@ -68,8 +68,9 @@
 ## 7. HTTP POST до Google Sheets
 **Мережа → HTTP запит**  
 - Метод: POST  
-- URL: ваш Apps Script. Шаблон: `https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec`  
-- Де взяти `YOUR_DEPLOYMENT_ID`: Apps Script → Deploy/Manage deployments → **Web app** → найпростіше вставити повний URL; якщо користуєтеся шаблоном, візьміть ID між `/s/` та `/exec` (наприклад, з `https://script.google.com/macros/s/ABC123XYZ/exec` беріть `ABC123XYZ`).  
+- URL: ваш Apps Script.  
+  - Вставити повністю: скопіюйте Web app URL з Apps Script → Deploy/Manage deployments → **Web app**.  
+  - Використати шаблон `https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec`: підставте ID між `/s/` та `/exec` (наприклад, з `https://script.google.com/macros/s/ABC123XYZ/exec` беріть `ABC123XYZ`).  
 - Спершу опублікуйте скрипт саме як **Web app**; інші типи деплою мають іншу структуру URL.  
 - Тіло: `{"username": "%username%", "message": "%message%"}`  
 - Content-Type: `application/json`
