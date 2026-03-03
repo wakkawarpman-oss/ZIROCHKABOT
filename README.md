@@ -1,59 +1,112 @@
-# ZIROCHKABOT
+# Проєкт «Зірочка Бот»
 
-Full project launch kit for the Zirochka restaurant booking bot and tablet POS onboarding.
+Два в одному: **Instagram-бот для бронювань** + **POS-додаток Zirochka POS** для прийому замовлень у ресторані «Зірочка».  
+Потік даних: Instagram/MacroDroid -> Apps Script -> Google Sheets, а POS працює офлайн через Room і синхронізує події при появі мережі.
 
-## Overview
+---
 
-This repository contains everything needed to launch and train staff on the ZIROCHKABOT flow:
+## Швидке встановлення (≈5 хвилин)
 
-- Instagram-to-Google-Sheets booking bridge (Apps Script)
-- POS setup package structure (APK + JSON menu + macro placeholders)
-- Canva video training kit (full and short versions)
-- Go-live checklist and release process notes
+1. Відкрийте [Releases](https://github.com/wakkawarpman-oss/ZIROCHKABOT/releases).
+2. Завантажте:
+   - [ZirochkaPOS.apk](https://github.com/wakkawarpman-oss/ZIROCHKABOT/releases/latest/download/ZirochkaPOS.apk)
+   - [zirochka_instagram_bot.mdr](https://github.com/wakkawarpman-oss/ZIROCHKABOT/releases/latest/download/zirochka_instagram_bot.mdr)
+   - [menu_zirochka.json](https://github.com/wakkawarpman-oss/ZIROCHKABOT/releases/latest/download/menu_zirochka.json)
+3. Встановіть APK на Samsung-планшет.
+4. Імпортуйте `.mdr` в MacroDroid і вставте свій URL Apps Script.
+5. Запустіть `verify_setup.sh` для перевірки готовності.
 
-## Quick Start (Go Live in 30-60 minutes)
+QR для швидкого доступу до артефактів:
 
-1. Download or prepare release files listed in `releases/RELEASES.md`.
-2. Deploy Google Apps Script from `apps-script/Code.gs`.
-3. Set your tablet macro HTTP request to your deployed Web App URL.
-4. Import POS menu from `config/menu_zirochka.sample.json` (or your production menu file).
-5. Run the checks in `docs/launch/go-live-checklist.md`.
-6. Share training materials from `canva-video-kit/`.
+- APK: [QR](https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fgithub.com%2Fwakkawarpman-oss%2FZIROCHKABOT%2Freleases%2Flatest%2Fdownload%2FZirochkaPOS.apk)
+- MacroDroid: [QR](https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fgithub.com%2Fwakkawarpman-oss%2FZIROCHKABOT%2Freleases%2Flatest%2Fdownload%2Fzirochka_instagram_bot.mdr)
+- Інструкція: [QR](https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fgithub.com%2Fwakkawarpman-oss%2FZIROCHKABOT)
 
-## Repository Structure
+Якщо релізу ще немає, використовуйте локальну збірку за інструкцією нижче.
 
-- `apps-script/` - Google Apps Script webhook to capture booking events in Sheets
-- `config/` - sample configuration files (menu structure)
-- `releases/` - release assets checklist and publishing notes
-- `docs/launch/` - operational launch runbook and go-live checklist
-- `canva-video-kit/` - video production package for staff training in Canva
+---
 
-## Release Artifacts
+## Детальна інструкція для Instagram-бота
 
-Expected artifacts for each launch version:
+### 1. Google Sheets + Apps Script
 
-- `ZirochkaPOS.apk` (Android POS app)
-- `zirochka_instagram_bot.mdr` (MacroDroid macro export)
-- `menu_zirochka.json` (POS menu data)
-- Optional: `STAFF_GUIDE.pdf` and release notes
+1. Створіть Google Sheet з назвою **«Бронювання»**.
+2. Відкрийте `Extensions -> Apps Script`.
+3. Вставте код з `apps-script/Code.gs` (або `macros/Code.gs`).
+4. Опублікуйте Web App:
+   - `Deploy -> New deployment -> Web app`
+   - `Execute as: Me`
+   - `Who has access: Anyone`
+5. Скопіюйте URL типу `https://script.google.com/.../exec`.
+6. Тест:
+   - GET у браузері повертає JSON зі статусом `ok`
+   - POST з `username` та `message` додає рядок у лист `Бронювання`
 
-Detailed structure and naming: `releases/RELEASES.md`.
+### 2. MacroDroid
 
-## Canva Training Materials
+1. Встановіть MacroDroid на планшет.
+2. Імпортуйте `.mdr` або створіть вручну за `macros/MACRODROID.md`.
+3. Встановіть змінні:
+   - `restaurant_name = "Зірочка"`
+   - `restaurant_instagram = "@zirochka.kyiv"`
+   - привітання: `Доброго ранку/дня/вечора/ночі`
+   - вибачення: `Перепрошуємо за затримку`, `Будь ласка, вибачте`
+   - фрази: `Пригощайтеся, будь ласка!`, `Сподіваємося, вам смакуватиме!`
+4. У HTTP-дії поле URL має бути порожнім у шаблоні, вставляється після вашого деплою Apps Script.
 
-Inside `canva-video-kit/` you will find:
+### 3. Налаштування Samsung
 
-- Full version (~16:30): 15 scenes
-- Short version (~5:50): 7 scenes
-- Bulk Create CSV files, timing plans, and UA voiceover scripts
-- Two reference MP4 previews
+- Вимкніть оптимізацію батареї для `MacroDroid` і `Zirochka POS`.
+- Закріпіть застосунки в recent apps.
+- Увімкніть доступ MacroDroid до сповіщень, автозапуску й overlay.
 
-## Security Notes
+---
 
-- Do not commit production credentials or private API keys.
-- Keep production Google Sheet IDs in script properties (not hardcoded).
-- If your endpoint becomes public, add a lightweight shared token check.
+## Детальна інструкція для POS-додатка
 
-## License
+1. Встановіть `ZirochkaPOS.apk` (або зберіть через Android Studio).
+2. За потреби заповніть ключі в `local.properties` або `gradle.properties`:
 
-MIT (see `LICENSE`).
+```properties
+telegram.bot.token=YOUR_BOT_TOKEN
+telegram.chat.id=YOUR_CHAT_ID
+sheets.script.url=YOUR_APPS_SCRIPT_URL
+```
+
+3. Перший запуск імпортує `app/src/main/assets/menu_zirochka.json` у Room.
+4. Замовлення створюються офлайн, зберігаються в локальній БД і пробують синхронізацію у мережі.
+5. Оновлення меню: вкладка `Адмін` -> `Перечитати меню з assets`.
+
+---
+
+## Інструкція для персоналу
+
+- Коротка інструкція: `docs/STAFF_GUIDE.md`
+- Для друку: експортуйте `STAFF_GUIDE.md` у PDF (browser print або pandoc).
+- Відеонавчання для команди: `canva-video-kit/`
+
+---
+
+## Вирішення проблем
+
+- **Apps Script не відповідає**: перевірте деплой Web App, доступ `Anyone`, правильність URL.
+- **Рядок не з'являється в Sheets**: перевірте лист `Бронювання` та логи Apps Script.
+- **Telegram не надсилає**: перевірте `telegram.bot.token` і `telegram.chat.id`.
+- **Меню не оновилось**: Admin -> `Перечитати меню з assets`.
+- **Немає інтернету**: POS працює офлайн; повторіть синк після відновлення мережі.
+
+---
+
+## Структура репозиторію
+
+- `app/` - Android POS (Kotlin, Compose, MVVM, Room, Retrofit, Hilt)
+- `apps-script/` - Apps Script для бронювань (Instagram -> Sheets)
+- `macros/` - інструкції для MacroDroid + `Code.gs` дубль
+- `docs/` - staff guide та launch-документація
+- `canva-video-kit/` - матеріали для відеоінструкції
+- `verify_setup.sh` - передрелізна перевірка середовища
+
+---
+
+## Ліцензія
+[MIT](LICENSE)

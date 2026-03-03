@@ -1,24 +1,31 @@
-# Apps Script Integration
+# Інтеграція Apps Script
 
-`Code.gs` is a webhook endpoint for saving booking requests into Google Sheets.
+`Code.gs` — вебхук для збереження запитів на бронювання в Google Sheets.
 
-## Setup
+## Налаштування
 
-1. Open `https://sheets.new`.
-2. Name the spreadsheet `Bronyuvannya Zirochka`.
-3. Open `Extensions -> Apps Script`.
-4. Replace default code with contents of `Code.gs`.
-5. Click `Deploy -> New deployment -> Web app`.
-6. Set:
-   - `Execute as`: Me
-   - `Who has access`: Anyone
-7. Copy the generated Web App URL.
+1. Відкрийте `https://sheets.new`.
+2. Створіть лист `Бронювання`.
+3. Відкрийте `Extensions -> Apps Script`.
+4. Замініть дефолтний код вмістом `Code.gs`.
+5. `Deploy -> New deployment -> Web app`.
+6. Параметри:
+   - `Execute as`: `Me`
+   - `Who has access`: `Anyone`
+7. Скопіюйте URL вебдодатка (`.../exec`) і підставте в MacroDroid.
 
-## MacroDroid Mapping
+## Формат вхідних даних (POST)
 
-In your macro action `HTTP request`, send POST JSON to the Web App URL.
+Мінімум:
 
-Example payload:
+```json
+{
+  "username": "guest_account",
+  "message": "Хочу столик на 19:00"
+}
+```
+
+Розширений варіант (для POS/бота):
 
 ```json
 {
@@ -29,20 +36,19 @@ Example payload:
   "guests": "4",
   "visit_date": "2026-03-05",
   "visit_time": "19:00",
-  "message": "Stolyk na vechir, bud laska"
+  "message": "Столик на вечір, будь ласка",
+  "orderSummary": "",
+  "total": ""
 }
 ```
 
-## Result in Google Sheets
+## Перевірка
 
-Rows are saved with:
+- GET на URL повертає health-check JSON.
+- POST додає рядок у лист `Бронювання`.
+- Помилки пишуться в `Executions` / `Logs` Apps Script.
 
-- timestamp
-- source and username
-- booking details
-- raw payload for debugging
+## Нотатки
 
-## Notes
-
-- If you want to force one specific spreadsheet, set `CONFIG.spreadsheetId`.
-- Keep credentials outside git and do not hardcode private tokens in script code.
+- Для фіксованої таблиці заповніть `CONFIG.spreadsheetId`.
+- Не зберігайте секрети/токени в репозиторії.

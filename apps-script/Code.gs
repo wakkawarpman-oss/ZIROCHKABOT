@@ -8,12 +8,14 @@
 
 const CONFIG = {
   spreadsheetId: "", // optional: leave empty to use active spreadsheet
-  sheetName: "Bronyuvannya",
+  sheetName: "Бронювання",
   timezone: "Europe/Kyiv",
 };
 
 const HEADERS = [
   "created_at",
+  "username",
+  "message",
   "source",
   "instagram_username",
   "guest_name",
@@ -21,15 +23,20 @@ const HEADERS = [
   "guests",
   "visit_date",
   "visit_time",
-  "message",
+  "order_summary",
+  "total",
   "raw_payload",
 ];
 
 function doGet() {
+  const sheet = getOrCreateSheet_();
+  ensureHeaders_(sheet);
   return response_({
     ok: true,
     service: "ZIROCHKABOT booking webhook",
     status: "healthy",
+    sheet: CONFIG.sheetName,
+    rows: Math.max(sheet.getLastRow() - 1, 0),
     timestamp: now_(),
   });
 }
@@ -50,6 +57,7 @@ function doPost(e) {
         "Dyakuiemo. Vashu zayavku na bronyuvannya otrymano. My pidtverdymo detalі nayblyzhchym chasom.",
     });
   } catch (error) {
+    Logger.log("doPost error: " + String(error));
     return response_({
       ok: false,
       error: String(error),
@@ -73,17 +81,34 @@ function parsePayload_(e) {
 
 function normalizePayload_(payload) {
   const ts = now_();
+  const username = firstDefined_(payload.username, payload.instagram_username, "");
+  const message = firstDefined_(payload.message, payload.text, "");
   const source = firstDefined_(payload.source, "instagram_dm");
-  const username = firstDefined_(payload.instagram_username, payload.username, "");
+  const instagramUsername = firstDefined_(payload.instagram_username, payload.username, "");
   const guestName = firstDefined_(payload.guest_name, payload.name, "");
   const phone = firstDefined_(payload.phone, payload.phone_number, "");
   const guests = firstDefined_(payload.guests, payload.people, "");
   const visitDate = firstDefined_(payload.visit_date, payload.date, "");
   const visitTime = firstDefined_(payload.visit_time, payload.time, "");
-  const message = firstDefined_(payload.message, payload.text, "");
+  const orderSummary = firstDefined_(payload.orderSummary, payload.order_summary, "");
+  const total = firstDefined_(payload.total, "");
   const raw = JSON.stringify(payload);
 
-  return [ts, source, username, guestName, phone, guests, visitDate, visitTime, message, raw];
+  return [
+    ts,
+    username,
+    message,
+    source,
+    instagramUsername,
+    guestName,
+    phone,
+    guests,
+    visitDate,
+    visitTime,
+    orderSummary,
+    total,
+    raw,
+  ];
 }
 
 function getOrCreateSheet_() {
