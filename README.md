@@ -69,14 +69,14 @@
 **Мережа → HTTP запит**  
 - Метод: POST  
 - URL: ваш Apps Script. Шаблон: `https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec`  
-- Де взяти `YOUR_DEPLOYMENT_ID`: Apps Script → Deploy/Manage deployments → **Web app** → копіюйте URL та підставте ID.  
+- Де взяти `YOUR_DEPLOYMENT_ID`: Apps Script → Deploy/Manage deployments → **Web app** → копіюйте весь URL і використайте його як є, або візьміть частину між `/s/` та `/exec` як ID для шаблону.  
 - Спершу опублікуйте скрипт саме як **Web app**; інші типи деплою мають іншу структуру URL.  
 - Тіло: `{"username": "%username%", "message": "%message%"}`  
 - Content-Type: `application/json`
 
 ## 8. Надсилання відповіді в Instagram
 1. **Екран → Відкрити додаток → Instagram**
-2. **Екран → Затримка 2 с**
+2. **Екран → Затримка 2 с** (за потреби збільшіть, якщо застосунок довше завантажується)
 3. **Екран → Вставити текст** → `%final_reply%`
 4. **Екран → Натиснути Enter** (або торкання кнопки «Надіслати» з підібраними координатами).
 > Переконайтеся, що MacroDroid має дозвіл на дії на екрані (Android → Спеціальні можливості → MacroDroid); після надання дозволу перезапустіть макрос/додаток, щоб він почав працювати.
