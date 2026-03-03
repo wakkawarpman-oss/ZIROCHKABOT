@@ -1,0 +1,61 @@
+{
+  "restaurant": "Zirochka",
+  "currency": "UAH",
+  "last_updated": "2026-03-03",
+  "categories": [
+    {
+      "id": "breakfast",
+      "title": "Snidanky",
+      "items": [
+        {
+          "id": "omlet_classic",
+          "name": "Omlet klasychnyi",
+          "price": 165,
+          "available": true
+        },
+        {
+          "id": "syrnyky",
+          "name": "Syrnyky zi smetanoyu",
+          "price": 210,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "main",
+      "title": "Osnovni stravy",
+      "items": [
+        {
+          "id": "chicken_cutlet",
+          "name": "Kotleta z kurchaty",
+          "price": 245,
+          "available": true
+        },
+        {
+          "id": "vareniki_potato",
+          "name": "Varenyky z kartopleyu",
+          "price": 190,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "title": "Napoi",
+      "items": [
+        {
+          "id": "espresso",
+          "name": "Espresso",
+          "price": 75,
+          "available": true
+        },
+        {
+          "id": "uzvar",
+          "name": "Uzvar domashnii",
+          "price": 85,
+          "available": true
+        }
+      ]
+    }
+  ]
+}

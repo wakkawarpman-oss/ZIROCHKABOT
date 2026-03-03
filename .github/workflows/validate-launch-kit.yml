@@ -1,0 +1,23 @@
+name: Validate Launch Kit
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          python -m json.tool config/menu_zirochka.sample.json > /dev/null
+
+      - name: Check required launch docs
+        run: |
+          test -f README.md
+          test -f releases/RELEASES.md
+          test -f docs/launch/go-live-checklist.md
+          test -f apps-script/Code.gs
