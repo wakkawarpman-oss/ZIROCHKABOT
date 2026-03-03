@@ -22,9 +22,6 @@ function doPost(e) {
     // Додаємо рядок: дата, ім'я, повідомлення
     sheet.appendRow([timestamp, username, message]);
 
-    // Логування для перевірки
-    console.log('Додано новий запис бронювання');
-
     return ContentService
       .createTextOutput(JSON.stringify({ result: 'success', restaurant: 'Зірочка' }))
       .setMimeType(ContentService.MimeType.JSON);
