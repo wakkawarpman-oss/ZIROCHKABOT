@@ -1,13 +1,15 @@
 package com.zirochka.pos.ui.screen.cart
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.zirochka.pos.domain.model.MenuItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
-
-import com.zirochka.pos.domain.model.MenuItem
+import kotlinx.coroutines.flow.stateIn
 
 @HiltViewModel
 class CartViewModel @Inject constructor() : ViewModel() {
@@ -15,9 +17,9 @@ class CartViewModel @Inject constructor() : ViewModel() {
     private val _items = MutableStateFlow<Map<MenuItem, Int>>(emptyMap())
     val items: StateFlow<Map<MenuItem, Int>> = _items
 
-    val total = _items.map { state ->
-        state.entries.sumOf { it.key.price * it.value }
-    }
+    val total: StateFlow<Double> = _items
+        .map { state -> state.entries.sumOf { it.key.price * it.value } }
+        .stateIn(viewModelScope, SharingStarted.Eagerly, 0.0)
 
     fun add(item: MenuItem) {
         _items.value = _items.value.toMutableMap().apply {

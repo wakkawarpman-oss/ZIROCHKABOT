@@ -70,7 +70,7 @@ class OrderRepository(
                 token = botToken,
                 body = TelegramRequest(
                     chat_id = chatId,
-                    text = "*Нове замовлення #$id*\n$summary\nРазом: ${"%.2f".format(total)} грн"
+                    text = "Нове замовлення #$id\n$summary\nРазом: ${"%.2f".format(total)} грн"
                 )
             )
         }.onFailure {
