@@ -6,9 +6,9 @@
 
 ## Швидке встановлення (≈5 хвилин)
 ⚠️ Посилання активуються після публікації першого релізу; до того використовуйте інструкцію зі збірки нижче.
-1. **Завантажте APK**: [ZirochkaPOS.apk](https://github.com/wakkawarpman-oss/ZIROCHKABOT/releases/download/v1.0.0/ZirochkaPOS.apk)  
+1. **Завантажте APK**: [ZirochkaPOS.apk](https://github.com/wakkawarpman-oss/ZIROCHKABOT/releases/download/<RELEASE_TAG>/ZirochkaPOS.apk)  
    _QR-код:_ (згенеруйте з цього посилання або додайте готове зображення).
-2. **Імпортуйте макрос**: `zirochka_instagram_bot.mdr` з релізу `v1.0.0`.  
+2. **Імпортуйте макрос**: `zirochka_instagram_bot.mdr` з релізу `<RELEASE_TAG>`.  
    _QR-код:_ посилання на той самий файл.
 3. **Інструкція + меню**:  
    - [menu_zirochka.json](app/src/main/assets/menu_zirochka.json)  

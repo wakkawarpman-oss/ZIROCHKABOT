@@ -61,6 +61,7 @@ android {
         buildConfig = true
     }
     composeOptions {
+        // Сумісно з Kotlin 1.9.21 (див. plugin версію вище)
         kotlinCompilerExtensionVersion = "1.5.4"
     }
     packaging {
