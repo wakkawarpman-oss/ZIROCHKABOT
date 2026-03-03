@@ -26,6 +26,7 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({ result: 'success', restaurant: 'Зірочка' }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
+    // Доступ до логів має бути лише у відповідальних адміністраторів.
     console.error('Помилка під час обробки бронювання:', error);
     return ContentService
       .createTextOutput(JSON.stringify({ result: 'error', error: 'internal_error' }))
