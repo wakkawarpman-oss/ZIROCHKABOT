@@ -1,0 +1,18 @@
+MacroDroid Template: Instagram to Sheets
+---------------------------------------
+Use this template to forward Instagram notification data to the Apps Script Web App.
+
+Steps:
+1) Import this file into MacroDroid.
+2) Open the HTTP Request action and paste your Web App URL from Google Apps Script.
+3) Keep the body as JSON:
+   {
+     "username": "{notif_title}",
+     "fullName": "",
+     "message": "{notif_text}",
+     "profileUrl": "https://instagram.com/{notif_title}",
+     "source": "instagram"
+   }
+4) Save the macro and trigger it on Instagram notification reception.
+
+Attach this file to the GitHub release (e.g., v1.0.0) for distribution.
