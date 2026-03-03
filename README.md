@@ -19,7 +19,7 @@
 - Якщо `%current_hour%` ≥ 8 і `< 12` → `greeting = "Доброго ранку"`
 - Інакше якщо `%current_hour%` ≥ 12 і `< 17` → `greeting = "Доброго дня"`
 - Інакше якщо `%current_hour%` ≥ 17 і `< 23` → `greeting = "Доброго вечора"`
-- Інакше → `greeting = "Доброї ночі"`
+- Інакше (ніч: `%current_hour%` ≥ 23 або `< 8`) → `greeting = "Доброї ночі"`
 
 ## 5. Визначення тону (`tone`)
 - Якщо `%message%` містить "добрий день" / "будь ласка" / "дякую" → `tone = "formal"`
@@ -68,7 +68,7 @@
 ## 7. HTTP POST до Google Sheets
 **Мережа → HTTP запит**  
 - Метод: POST  
-- URL: ваш Apps Script  
+- URL: ваш Apps Script (наприклад `https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec`)  
 - Тіло: `{"username": "%username%", "message": "%message%"}`  
 - Content-Type: `application/json`
 
