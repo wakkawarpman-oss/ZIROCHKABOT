@@ -26,7 +26,7 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({ result: 'success', restaurant: 'Зірочка' }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
-    // Обмежуйте доступ до логів через права у проєкті Apps Script (Share → лише адміністратори; деталі в README).
+    // Обмежуйте доступ до логів через права у проєкті Apps Script (Share → лише адміністратори; деталі в README, розділ «Крок 1»).
     console.error('Помилка під час обробки бронювання:', error);
     return ContentService
       .createTextOutput(JSON.stringify({ result: 'error', error: 'internal_error' }))
