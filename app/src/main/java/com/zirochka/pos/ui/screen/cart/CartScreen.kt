@@ -43,7 +43,7 @@ fun CartScreen(
                 )
             }
         }
-        Column(modifier = Modifier.padding(16.dp).fillMaxWidth()) {
+        Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
             Text(
                 text = "Разом: ${"%.2f".format(total)} грн",
                 style = MaterialTheme.typography.titleLarge
