@@ -1,6 +1,7 @@
 package com.zirochka.pos.data.repository
 
 import android.content.res.AssetManager
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.zirochka.pos.data.local.dao.CategoryDao
@@ -48,23 +49,27 @@ class MenuRepository(
         }.distinctUntilChanged()
 
     suspend fun preloadFromAssets(assets: AssetManager, fileName: String = "menu_zirochka.json") {
-        val json = assets.open(fileName).bufferedReader().use { it.readText() }
-        val seed = Gson().fromJson(json, MenuSeed::class.java) ?: return
-        categoryDao.clear()
-        menuItemDao.clear()
-        categoryDao.insertAll(seed.categories.map { CategoryEntity(it.id, it.name) })
-        val menuItems = seed.categories.flatMap { category ->
-            category.items.map {
-                MenuItemEntity(
-                    id = it.id,
-                    name = it.name,
-                    description = it.description,
-                    price = it.price,
-                    categoryId = category.id,
-                    available = it.available
-                )
+        runCatching {
+            val json = assets.open(fileName).bufferedReader().use { it.readText() }
+            val seed = Gson().fromJson(json, MenuSeed::class.java) ?: return
+            categoryDao.clear()
+            menuItemDao.clear()
+            categoryDao.insertAll(seed.categories.map { CategoryEntity(it.id, it.name) })
+            val menuItems = seed.categories.flatMap { category ->
+                category.items.map {
+                    MenuItemEntity(
+                        id = it.id,
+                        name = it.name,
+                        description = it.description,
+                        price = it.price,
+                        categoryId = category.id,
+                        available = it.available
+                    )
+                }
             }
+            menuItemDao.insertAll(menuItems)
+        }.onFailure {
+            Log.e("MenuRepository", "Не вдалося прочитати $fileName", it)
         }
-        menuItemDao.insertAll(menuItems)
     }
 }
